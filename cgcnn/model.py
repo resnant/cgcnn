@@ -106,7 +106,7 @@ class CrystalGraphConvNet(nn.Module):
         self.embedding = nn.Linear(orig_atom_fea_len, atom_fea_len)
         self.convs = nn.ModuleList([ConvLayer(atom_fea_len=atom_fea_len,
                                     nbr_fea_len=nbr_fea_len)
-                                    for _ in range(n_conv)])
+                                    for _ in range(n_conv)]) #n_convの数だけConvLayerを繰り返し定義
         self.conv_to_fc = nn.Linear(atom_fea_len, h_fea_len)
         self.conv_to_fc_softplus = nn.Softplus()
         if n_h > 1:
